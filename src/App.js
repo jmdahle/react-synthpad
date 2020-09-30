@@ -1,14 +1,17 @@
 import React from 'react';
-import { AMSynth } from 'tone';
 import './App.css';
 
-const synth = new AMSynth().toMaster();
+// import the context
+import { AppContextProvider } from './context';
+import Layout from './components/layout';
 
 function App() {
   return (
-    <>
-      <button onClick={() => synth.triggerAttackRelease('C4','8n')}>Play</button>
-    </>
+    <AppContextProvider>
+      <Layout>
+        
+      </Layout>
+    </AppContextProvider>
   );
 }
 
