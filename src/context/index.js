@@ -91,13 +91,13 @@ const darkState = {
     ]
   }
 
-const AppContext = createContext(lightstate);
+const AppContext = createContext(lightState);
 const { Provider } = AppContext;
 
 // reducer
 const reducer = (state, action) => {
-    if (action.type === "") {
-        console.log("nothing");
+    if (action.type === "TOGGLE_MODE") {
+        return action.payload === "light" ? lightState : darkState;
     } else {
         return state;
     }
@@ -111,7 +111,7 @@ const AppContextProvider = props => {
 
 // helper
 const useAppContext = () => {
-    return userContext(AppContext);
+    return useContext(AppContext);
 }
 
 // export
